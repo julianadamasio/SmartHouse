@@ -1,0 +1,39 @@
+/* 
+    smartHome
+    ---------------------------
+
+    JaCaMo Project File
+    
+    This file defines the initial state of the MAS (initial agents, environment, organisation, ....)
+    
+    (see jacamo/doc/jcm.html for more information about what can be defined in this file)
+    
+    JaCaMo <VERSION>
+    <DATE>
+*/
+
+mas smartHome {
+
+    agent lider
+    agent operador{
+    	instances:10
+    }
+    
+     workspace devices {
+     	//artefatos dispositivos por comodo
+     	//parametros (comodo, quantidade de lampadas, quantidade de ar, quantidade de robô, quantidade de tv)
+            artifact sala      : tools.Local(0,"ar_cond")      						 
+   			artifact quarto    : tools.Local() 
+   			artifact cozinha   : tools.Local() 
+   			artifact banheiro  : tools.Local() 
+    }
+    
+    
+    // agent source path
+    asl-path: src/agt
+              src/agt/inc
+
+    
+    
+}
+
