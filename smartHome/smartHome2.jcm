@@ -16,6 +16,7 @@ mas smartHome {
 
     agent lider
     agent operador{
+    	
    		 instances:10
      }
     
