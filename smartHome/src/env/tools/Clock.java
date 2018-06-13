@@ -6,7 +6,8 @@ import cartago.*;
 
 public class Clock extends Artifact {
 	  boolean counting;
-	  final static long TICK_TIME = 24;
+	  final static long TICK_TIME = 1000;
+	  int hora = 0;
 
 	  void init(){
 	    counting = false;
@@ -30,6 +31,11 @@ public class Clock extends Artifact {
 	      signal("tick");
 	      await_time(TICK_TIME);
 	    }
+	    
+	   // @OPERATION int valida(int h){
+	    //	if()
+	    	
+	    //}
 	  }
 }
 
