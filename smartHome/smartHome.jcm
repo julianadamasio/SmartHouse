@@ -19,6 +19,16 @@ mas smartHome {
     	instances:10
     }
     
+     workspace devices {
+     	//artefatos dispositivos por comodo
+     	//parametros (comodo, quantidade de lampadas, quantidade de ar, quantidade de robô, quantidade de tv)
+            artifact sala      : tools.Dispositivos(3, 1, 1, 2) 
+   			artifact quarto    : tools.Dispositivos(1, 1, 1, 1) 
+   			artifact cozinha   : tools.Dispositivos(5, 1, 1, 1) 
+   			artifact banheiro  : tools.Dispositivos(1, 1, 0, 1) 
+    }
+    
+    
     // agent source path
     asl-path: src/agt
               src/agt/inc

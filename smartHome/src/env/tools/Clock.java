@@ -19,7 +19,7 @@ import cartago.ObsProperty;
 public class Clock extends Artifact {
 
 	private int valorHora = 0;
-	private Logger logger = Logger.getLogger("clock."+Clock.class.getName());
+//	private Logger logger = Logger.getLogger("clock."+Clock.class.getName());
 	boolean counting;
 	final static long TICK_TIME = 5000;
 
@@ -29,7 +29,6 @@ public class Clock extends Artifact {
 		execInternalOp("start");
 		//logger.info("Entrou no init");
 	}
-
 
 	@OPERATION 
 	void start(){
@@ -54,7 +53,7 @@ public class Clock extends Artifact {
 			//hora = valida24h(valorHora);
 			await_time(TICK_TIME);
 			signal("tick", valorHora);
-			valida24h(valorHora);
+			valida24h(valorHora); 
 			//logger.info("count Tick e:"+ valorHora);
 		} 
 	}
@@ -63,10 +62,10 @@ public class Clock extends Artifact {
 	@OPERATION
 	int valida24h(int valorH){
 		//logger.info("Entrou no 24h" + valorH);
-		if(valorH<23){
-			valorHora= valorH + 1;   
+		if(valorH<24){
+			valorHora = valorH + 1;   
 		}else{
-			valorHora=0;
+			valorHora = 0;
 		}    
 		//logger.info("valida24 Tick e atualizado:"+ valorHora);
 		return valorHora;

@@ -10,6 +10,22 @@
 
 +!start : true <- .print("hello world.").
 
++tick(Horario)
+<-  //.print("Hora", Horario);
+	!verificar(Horario);
+.
+
++!verificar(Horario) : timeOn(Horario) //& .lookup(Horario, Dispositivo)
+<- 
+	?timeOn(Horario)[artifact_id(ArtId)];
+	.print("hora  ", Horario, "artefatoId  ", ArtId);
+	 selecionaAgente(Ag);
+	.print("agente selecionado  ", Ag);
+	.send(Ag, achieve, ligarDispositivo(ArtId));
+.
+
+
+
 { include("$jacamoJar/templates/common-cartago.asl") }
 { include("$jacamoJar/templates/common-moise.asl") }
 
