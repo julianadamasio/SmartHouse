@@ -11,19 +11,40 @@
 +!start : true <- .print("hello world.").
 
 +tick(Horario)
-<-  //.print("Hora", Horario);
+<-  .print("Hora: ", Horario);
 	!verificar(Horario);
 .
 
-+!verificar(Horario) : timeOn(Horario) //& .lookup(Horario, Dispositivo)
+//quando for a hora certa, manda para o agente selecionado.
++!verificar(Horario) : timeOn(Horario)
 <- 
 	?timeOn(Horario)[artifact_id(ArtId)];
-	.print("hora  ", Horario, "artefatoId  ", ArtId);
+	?focused(Works,Nome[_],ArtId);
 	 selecionaAgente(Ag);
 	.print("agente selecionado  ", Ag);
-	.send(Ag, achieve, ligarDispositivo(ArtId));
+	.send(Ag, achieve, ligardispositivo(Nome,ArtId,Works));
 .
 
+//quando for a hora certa, manda para o agente selecionado.
++!verificar(Horario) : timeOff(Horario) 
+<- 
+	?timeOff(Horario)[artifact_id(ArtId)];
+	?focused(Works,Nome[_],ArtId);
+	 selecionaAgente(Ag);
+	.print("agente selecionado  ", Ag);
+	.send(Ag, achieve, desligardispositivo(Nome,ArtId,Works));
+.
+
+//quando não for a hora certa não faz nada
++!verificar(Horario).
+
+//quando não for a hora certa não faz nada
+//+!verificartimeon(Horario).
+
++terminei(NomeAgent, Nome, Works) 
+<- 
+	.print("O agente: ", NomeAgent, " terminou a atividade: ", Nome, " do(a) ", Works);
+.
 
 
 { include("$jacamoJar/templates/common-cartago.asl") }
