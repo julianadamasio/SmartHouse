@@ -6,8 +6,7 @@ import cartago.*;
 
 public class Dispositivos extends Artifact {
 
-	void init(String tipoDispositivo, int status, int timeOn, int timeOff) {
-		defineObsProperty("tipoDispositivo", tipoDispositivo);
+	void init(int status, int timeOn, int timeOff) {
 		defineObsProperty("status", status);
 		defineObsProperty("timeOn", timeOn);
 		defineObsProperty("timeOff", timeOff);
@@ -22,12 +21,12 @@ public class Dispositivos extends Artifact {
 		// se for ligado, desliga
 		if(statusD.intValue() == 0){
 			statusD.updateValue(1);
-			System.out.println("[ArtDispositivos] Ligou");
+			//System.out.println("[ArtDispositivos] Ligou");
 			//fazer print
 			//signal("liga");
 		}else{
 			statusD.updateValue(0);
-			System.out.println("[ArtDispositivos] Desligou");
+			//System.out.println("[ArtDispositivos] Desligou");
 			//fazer print
 			//signal("desliga");
 		}

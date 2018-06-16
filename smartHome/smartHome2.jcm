@@ -15,16 +15,18 @@
 mas smartHome {
 
     agent lider{
-    	focus: relogio, luz1, luz2, selecionar
+    	focus: selecionar, relogio, luz1, luz2, ar1, robo1, tv1, luz3, luz4, ar2, robo2, tv2, luz5, ar3, robo3, tv3, luz6   
+    	
     }
     
     agent operador{
-   		 instances:10
-   		 focus: luz1, luz2, selecionar
+   		instances:10
+        focus:  luz1, luz2, ar1, robo1, tv1, luz3, luz4, ar2, robo2, tv2, luz5, ar3, robo3, tv3, luz6  
+   		
      }
      
      workspace algoritmo{
-     	artifact selecionar    : tools.AlgoritmoSelecao()
+     	artifact selecionar  : tools.AlgoritmoSelecao()
      }
     
      workspace tempo{
@@ -33,31 +35,31 @@ mas smartHome {
     
      workspace quarto {
      //artefatos dispositivos por comodo
-     //parametros (tipoartefato, status, time)
-            artifact luz1      : tools.Dispositivos("luz1_quarto", 0, 2, 5)       
-   			artifact luz2      : tools.Dispositivos("luz2_quarto", 0, 3, 6)
-//       		artifact ar1       : tools.Dispositivos("ar1_quarto", 0)
-//       		artifact robo1     : tools.Dispositivos("robo1_quarto", 0)
-//       		artifact tv1       : tools.Dispositivos("tv1_quarto", 0)    
+     //parametros ( status, horaligar, horadesligar)
+            artifact luz1      : tools.Dispositivos(0, 1, 5)       
+   			artifact luz2      : tools.Dispositivos(0, 2, 6)
+       		artifact ar1       : tools.Dispositivos(0, 4, 8)
+       		artifact robo1     : tools.Dispositivos(0, 8, 18)
+       		artifact tv1       : tools.Dispositivos(0, 18, 20)    
     }
 
     workspace cozinha {
-//	      	artifact luz3      : tools.Dispositivos("luz3_cozinha", 0)       
-//	   		artifact luz4      : tools.Dispositivos("luz4_cozinha", 0)
-//	       	artifact ar2       : tools.Dispositivos("ar2_cozinha", 0)
-//	      	artifact robo2     : tools.Dispositivos("robo2_cozinha", 0)
-//	       	artifact tv2       : tools.Dispositivos("tv2_cozinha", 0)
-    } 
+	      	artifact luz3      : tools.Dispositivos(0, 3, 7)       
+	   		artifact luz4      : tools.Dispositivos(0, 1, 7)
+	       	artifact ar2       : tools.Dispositivos(0, 7, 9)
+	      	artifact robo2     : tools.Dispositivos(0, 3, 6)
+	       	artifact tv2       : tools.Dispositivos(0, 8, 9)
+   } 
 
     workspace sala {
-//			artifact luz5      : tools.Dispositivos("luz5_sala", 0)       
-//	       	artifact ar3       : tools.Dispositivos("ar3_sala", 0)
-//	       	artifact robo3     : tools.Dispositivos("robo3_sala", 0)
-//	       	artifact tv3       : tools.Dispositivos("tv2_sala", 0)
+			artifact luz5      : tools.Dispositivos(0, 18, 21)       
+	       	artifact ar3       : tools.Dispositivos(0, 17, 16)
+	       	artifact robo3     : tools.Dispositivos(0, 7, 19)
+	       	artifact tv3       : tools.Dispositivos(0, 18, 20)
     }
 
     workspace banheiro {
-//    		artifact luz6 : tools.Dispositivos("luz6_banheiro", 0)       
+    		artifact luz6 : tools.Dispositivos(0, 8, 10)       
     }
 
     // agent source path
