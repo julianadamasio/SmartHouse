@@ -21,7 +21,7 @@ public class Clock extends Artifact {
 	private int valorHora = 1;
 //	private Logger logger = Logger.getLogger("clock."+Clock.class.getName());
 	boolean counting;
-	final static long TICK_TIME = 4000;
+	final static long TICK_TIME = 1000;
 
 	void init(){
 		//valorHora = 0;

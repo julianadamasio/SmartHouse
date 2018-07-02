@@ -1,0 +1,117 @@
+/* 
+    smartHome
+    ---------------------------
+
+    JaCaMo Project File
+    
+    This file defines the initial state of the MAS (initial agents, environment, organisation, ....)
+    
+    (see jacamo/doc/jcm.html for more information about what can be defined in this file)
+    
+    JaCaMo <VERSION>
+    <DATE>
+*/
+
+mas smartHome {	
+
+    agent lider{
+    	beliefs: round(0)
+    	focus: selecionar, relogio, luz1, luz2, ar1, robo1, tv1, luz3, luz4, ar2, robo2, tv2, luz5, ar3, robo3, tv3, luz6   
+    	
+    }
+    
+	agent operador1 : operador.asl{
+    	focus:  selecionar, relogio, luz1, luz2, ar1, robo1, tv1, luz3, luz4, ar2, robo2, tv2, luz5, ar3, robo3, tv3, luz6  
+    	  	
+   	}
+   	
+   	agent operador2 : operador.asl{
+    	focus:  selecionar, relogio, luz1, luz2, ar1, robo1, tv1, luz3, luz4, ar2, robo2, tv2, luz5, ar3, robo3, tv3, luz6  
+    	    	
+   	}
+   	
+   	agent operador3 : operador.asl{
+    	focus:  selecionar, relogio, luz1, luz2, ar1, robo1, tv1, luz3, luz4, ar2, robo2, tv2, luz5, ar3, robo3, tv3, luz6  
+    	    	
+   	}
+   	
+   	agent operador4 : operador.asl{
+    	focus:  selecionar, relogio, luz1, luz2, ar1, robo1, tv1, luz3, luz4, ar2, robo2, tv2, luz5, ar3, robo3, tv3, luz6  
+    	   	
+   	}
+   	
+   	agent operador5 : operador.asl{
+    	focus:  selecionar, relogio, luz1, luz2, ar1, robo1, tv1, luz3, luz4, ar2, robo2, tv2, luz5, ar3, robo3, tv3, luz6  
+    	   	
+   	}
+   	
+   	agent operador6 : operador.asl{
+    	focus:  selecionar, relogio, luz1, luz2, ar1, robo1, tv1, luz3, luz4, ar2, robo2, tv2, luz5, ar3, robo3, tv3, luz6  
+      	
+   	}
+   	
+   	agent operador7 : operador.asl{
+    	focus:  selecionar, relogio, luz1, luz2, ar1, robo1, tv1, luz3, luz4, ar2, robo2, tv2, luz5, ar3, robo3, tv3, luz6  
+    	   	
+   	}
+   	
+   	agent operador8 : operador.asl{
+    	focus:  selecionar, relogio, luz1, luz2, ar1, robo1, tv1, luz3, luz4, ar2, robo2, tv2, luz5, ar3, robo3, tv3, luz6  
+        	
+   	}
+   	
+   	agent operador9 : operador.asl{
+    	focus:  selecionar, relogio, luz1, luz2, ar1, robo1, tv1, luz3, luz4, ar2, robo2, tv2, luz5, ar3, robo3, tv3, luz6  
+    	   	
+   	}
+   	
+   	agent operador10 : operador.asl{
+    	focus:  selecionar, relogio, luz1, luz2, ar1, robo1, tv1, luz3, luz4, ar2, robo2, tv2, luz5, ar3, robo3, tv3, luz6  
+     	
+   	}
+     
+     
+     workspace algoritmo {
+     	artifact selecionar  : tools.AlgoritmoSelecao()
+     }
+    
+     workspace tempo {
+     	artifact relogio     : tools.Clock() 
+     }
+    
+     workspace quarto {
+           //parametros (status, posx, posy, timeOn, timeOff)
+            artifact luz1     : tools.Dispositivos(0, 50, 53, 1, 2)       
+   			artifact luz2     : tools.Dispositivos(0, 54, 52, 3, 4)
+       		artifact ar1      : tools.Dispositivos(0, 51, 52, 5, 6)
+       		artifact robo1    : tools.Dispositivos(0, 50, 51, 7, 8)
+       		artifact tv1      : tools.Dispositivos(0, 49, 50, 9, 10)    
+    }
+
+    workspace cozinha {
+	      	artifact luz3     : tools.Dispositivos(0, 30, 31, 11, 12)       
+	   		artifact luz4     : tools.Dispositivos(0, 32, 33, 13, 14)
+	       	artifact ar2      : tools.Dispositivos(0, 34, 35, 15, 16)
+	      	artifact robo2    : tools.Dispositivos(0, 35, 34, 17, 18)
+	       	artifact tv2      : tools.Dispositivos(0, 37, 38, 19, 20)
+   } 
+
+    workspace sala {
+			artifact luz5     : tools.Dispositivos(0, 20, 21, 21, 22)       
+	       	artifact ar3      : tools.Dispositivos(0, 22, 23, 23, 24)
+	       	artifact robo3    : tools.Dispositivos(0, 24, 25, 7, 19)
+	       	artifact tv3      : tools.Dispositivos(0, 25, 26, 19, 20)
+    }
+
+    workspace banheiro {
+    		artifact luz6     : tools.Dispositivos(0, 10, 11, 8, 10)       
+    }
+
+    // agent source path
+    asl-path: src/agt
+              src/agt/inc
+
+}
+
+
+

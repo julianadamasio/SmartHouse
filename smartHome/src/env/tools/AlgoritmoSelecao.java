@@ -25,5 +25,6 @@ public class AlgoritmoSelecao extends Artifact {
 		String agente = "operador";
 		ag.set(agente.concat(selecionado1));
 	}
+	
 }
 
